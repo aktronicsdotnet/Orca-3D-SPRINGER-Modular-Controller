@@ -103,7 +103,10 @@
 ❌ محدودیت در اجرای هم‌زمان چند وظیفه</br>
 ❌ پشتیبانی محدود از سخت‌افزارهای جدید</br>
 ❌ نبود رابط کاربری گرافیکی برای تنظیمات پیشرفته</br>
-❌ عدم بهره‌گیری از پردازنده‌های قدرتمند برای بهینه‌سازی عملکرد</br>
+❌ عدم بهره‌گیری از پردازنده‌های قدرتمند برای بهینه‌سازی عملکرد</br></br></br>
+
+**کنترلر Springer به صورت رسمی توسط فریمور Marlin پشتیبانی میشود و برای استفاده از این برد کافیست بعد از دانلود فریمور مارلین در فایل Configuration.h اسم برد را به BOARD_SPRINGER_CONTROLLER تغییر دهیم:** </br>
+**<div align="justify" style="direction:ltr;"> #define MOTHERBOARD BOARD_SPRINGER_CONTROLLER </div>**</br>
 
 ## فریمور Klipper
 <div align="justify"> کلیپر (Klipper) یک فریمور پیشرفته و متن‌باز برای پرینترهای سه‌بعدی است که از معماری دوگانه (Dual MCU/CPU) استفاده می‌کند. در این فریمور، یک کامپیوتر مثل Raspberry Pi پردازش‌های پیچیده را انجام می‌دهد و فقط دستورات ساده را به برد کنترل پرینتر ارسال می‌کند. با توجه به قدرت پردازشی بسیار بالاتر فراهم شده توسط برد کامپیوتر تک بردی این فریمور گزینه ی بسیار مناسب تری برای پرینتر های سه بعدی سرعت بالاست اما همین اضافه شدن کامپیتور تک بردی قیمت سیستم را افزایش چشمگیری میدهد. </div>
@@ -130,10 +133,243 @@
 </p>
 
 ## درایور های خنگ یا Dumb
- <div align="justify"> درایورهای خنگ یا Dumb هیچگونه پروتکل ارتباطی در زمینه صحبت با میکروکنترلر برد کنترلر ندارند و تنظیماتی که روی آن ها ست میشود معمولا از طریق روش های سخت افزاری پیش پا افتاده مثل تنظیم جامپر برای تنظیم میکرواستپ و چرخاندن یک پتاسیومتر برای تنظیم جریان موتور انجام میشود. از نمونه های رایج این درایور ها میتوان A4988 و DRV8825 را نام برد. از این درایورها با توجه به معایب زیادی که دارند بهتر است استفاده نشوند. اگر به هر دلیل تمایل به استفاده از این نوع درایور ها را داشتید باید طبق توضیحات سازنده، نیازی سخت افزاریتان و تنظیماتی که مد نظرتان است این درایور ها را به درستی تنظیم کنید. برای تنظیم کردن میزان میکرو استپ درایور ها جداول ارائه شده از طرف سازنده را چک کنید و جامپر های زیر هر درایور را به صورت صحیح ست کنید. </div>
+ <div align="justify"> درایورهای خنگ یا Dumb هیچگونه پروتکل ارتباطی در زمینه صحبت با میکروکنترلر برد کنترلر ندارند و تنظیماتی که روی آن ها ست میشود معمولا از طریق روش های سخت افزاری پیش پا افتاده مثل تنظیم جامپر برای تنظیم میکرواستپ و چرخاندن یک پتاسیومتر برای تنظیم جریان موتور انجام میشود. از نمونه های رایج این درایور ها میتوان A4988 و DRV8825 را نام برد. از این درایورها با توجه به معایب زیادی که دارند بهتر است استفاده نشوند. اگر به هر دلیل تمایل به استفاده از این نوع درایور ها را داشتید باید طبق توضیحات سازنده، نیازی سخت افزاریتان و تنظیماتی که مد نظرتان است این درایور ها را به درستی تنظیم کنید. برای تنظیم کردن میزان میکرو استپ درایور ها جداول ارائه شده از طرف سازنده را چک کنید و جامپر های زیر هر درایور را به صورت صحیح ست کنید. در اکثر درایور های خنگ پین های SLEEP و RESET باید به همدیگر متصل شوند و برای همین منظور فارغ از حالت های M0-M2 چهارمین جامپر باید در پوزیشن سمت چپ قرار بگیرد. </div>
+<p align="center">
+<img src=./images/Dumb%20Drivers%20Jumpers.png width="1000" />
+</p>
 
+**بعد از تنظیم جامپر های این درایور ها باید جریان موتور را طبق دستورالعمل و فرمول سازنده درایور با استفاده از پتاسیومتر روی درایور ست کنید.**
 
 ## درایور های هوشمند UART/SPI
  <div align="justify"> 
-این درایور ها توسط شرکت Trinamics با عنوان درایور های TMC ارائه شده اند و همانطور که از اسمشان مشخص است ما سوای توانایی کاملشان به عنوان درایور استپر موتور روش کنترل راحت تر و امکانات بیشتری دارند که به همین دلیل اصطلاحا به این درایور ها درایور هوشمند گفته میشود. درایور های هوشمند TMC معمولا دارای یکی از دو پروتکل ارتباطی UART یا SPI هستند. مدل هایی مانند TMC2208، TMC2209، TMC2225، TMC2226 و... دارای پروتکل ارتباطی UART هستند و درایور هایی مانند TMC2130، TMC5160، TMC2660 و... دارای ارتباط SPI هستند. در مورد درایور های UART پروتکل ارتباطی UART استفاده شده در این درایور ها از نوع Single Wire است و تنها نیازمند یک پین از میکروکنترلر برای برقراری ارتباط با میکروکنترلر است. درایور های SPI از پروتکل ارتباطی SPI استفاده میکنند و برای برقراری ارتباط با میکروکنترلر نیازمند یک پورت SPI که شامل پین های MISO، MOSI و CLOCK است هستند و یک پین برای هر درایور به عنوان پین Chip Select نیاز است. از آنجایی میکروکنترلر ها دارای پورت های SPI محدود هستند(معمولا هر میکرو بسته به مدل آن بین 1 تا 3 پورت SPI دارد.) و این پورت ها معمولا برای استفاده های دیگری مثل کارت حافظه SD یا Micro SD یا نمایشگر و ... استفاده میشود معمولا یک پورت SPI برای تمامی درایور ها به صورت مشترک استفاده خواهد شد. از آنجایی هر درایور یک پین Chip Select یا به انحصار CS جدا دارد علارغم پورت مشترک امکان کنترل تمامی درایور ها به صورت مجزا فراهم خواهد شد. </div>
+این درایور ها توسط شرکت Trinamics با عنوان درایور های TMC ارائه شده اند و همانطور که از اسمشان مشخص است ما سوای توانایی کاملشان به عنوان درایور استپر موتور روش کنترل راحت تر و امکانات بیشتری دارند که به همین دلیل اصطلاحا به این درایور ها درایور هوشمند گفته میشود. درایور های هوشمند TMC معمولا دارای یکی از دو پروتکل ارتباطی UART یا SPI هستند. مدل هایی مانند TMC2208، TMC2209، TMC2225، TMC2226 و... دارای پروتکل ارتباطی UART هستند و درایور هایی مانند TMC2240، TMC2130، TMC5160، TMC2660 و... دارای ارتباط SPI هستند. در مورد درایور های UART پروتکل ارتباطی UART استفاده شده در این درایور ها از نوع Single Wire است و تنها نیازمند یک پین از میکروکنترلر برای برقراری ارتباط با میکروکنترلر است. درایور های SPI از پروتکل ارتباطی SPI استفاده میکنند و برای برقراری ارتباط با میکروکنترلر نیازمند یک پورت SPI که شامل پین های MISO، MOSI و CLOCK است هستند و یک پین برای هر درایور به عنوان پین Chip Select نیاز است. از آنجایی میکروکنترلر ها دارای پورت های SPI محدود هستند(معمولا هر میکرو بسته به مدل آن بین 1 تا 3 پورت SPI دارد.) و این پورت ها معمولا برای استفاده های دیگری مثل کارت حافظه SD یا Micro SD یا نمایشگر و ... استفاده میشود معمولا یک پورت SPI برای تمامی درایور ها به صورت مشترک استفاده خواهد شد. از آنجایی هر درایور یک پین Chip Select یا به انحصار CS جدا دارد علارغم پورت مشترک امکان کنترل تمامی درایور ها به صورت مجزا فراهم خواهد شد. </div></br>
 
+ **<div align="justify"> برای درایورهای UART تنها کافیست ابتدا اطمینان حاصل پیدا کنید پین UART درایور شما روی پین MS2 یعنی چهارمین پین از سمت پین EN یا ENABLE درایور ست شده است. (در برخی مدل های درایور ها توانایی تنظیم بین پین چهارم و پین پنجم وجود دارد که در این حالت باید روی پین چهارم تنظیم شود.) سپس تک جامپر مربوط به UART را در پوزیشن سمت راست ست کنید. </div>**</br>
+  **<div align="justify"> برای درایورهای SPI تنها کافیست ابتدا اطمینان حاصل پیدا کنید پین CS درایور شما روی پین MS2 یعنی چهارمین پین از سمت پین EN یا ENABLE درایور ست شده است. (در برخی مدل های درایور ها توانایی تنظیم بین پین چهارم و پین پنجم وجود دارد که در این حالت باید روی پین چهارم تنظیم شود.) سپس تمامی جامپر مربوط به SPI را در پوزیشن سمت راست ست کنید. </div>**</br>
+   **<div align="justify"> توجه کنید در حالت SPI پین UART به عنوان پین CS یا Chip Select عمل خواهد کرد. </div>**</br>
+
+<p align="center">
+<img src=./images/Smart%20Drivers%20Jumpers.png width="750" />
+</p>
+
+**بعد از تنظیم جامپر های درایور های هوشمند امکان تنظیم میزان میکرواستپ و جریان موتور توسط فریمور مارلین و کلیپر به صورت نرم افزاری امکان پذیر خواهد بود.**
+
+### پین های حالت UART
+<table border="1" align="Center" dir="ltr">
+    <tr>
+        <th>Driver</th>
+        <th>Header</th>
+        <th>Pin</th>
+    </tr>
+    <tr>
+        <td>Driver #0 UART (Normally Called X)</td>
+        <td>DRV1</td>
+        <td>PE3</td>
+    </tr>
+    <tr>
+        <td>Driver #1 UART (Normally Called Y)</td>
+        <td>DRV1</td>
+        <td>PE4</td>
+    </tr>
+    <tr>
+        <td>Driver #2 UART (Normally Called Z)</td>
+        <td>DRV1</td>
+        <td>PB3</td>
+    </tr>
+    <tr>
+        <td>Driver #3 UART (Normally Called E0)</td>
+        <td>DRV1</td>
+        <td>PB7</td>
+    </tr>
+      <tr>
+        <td>Driver #4 UART (Normally Called E1)</td>
+        <td>DRV2</td>
+        <td>PD15</td>
+    </tr>
+    <tr>
+        <td>Driver #5 UART (Normally Called E2)</td>
+        <td>DRV2</td>
+        <td>PD4</td>
+    </tr>
+    <tr>
+        <td>Driver #6 UART (Normally Called E3)</td>
+        <td>DRV2</td>
+        <td>PD11</td>
+    </tr>
+    <tr>
+        <td>Driver #7 UART (Normally Called E4)</td>
+        <td>DRV2</td>
+        <td>PD8</td>
+    </tr>
+</table>
+
+### پین های حالت SPI
+<table border="1" align="Center" dir="ltr">
+    <tr>
+        <th>Driver</th>
+        <th>Header</th>
+        <th>Pin</th>
+    </tr>
+    <tr>
+        <td>SPI CLK</td>
+        <td>DRV1, DRV2</td>
+        <td>PB13</td>
+    </tr>
+    <tr>
+        <td>SPI MISO</td>
+        <td>DRV1, DRV2</td>
+        <td>PB14</td>
+    </tr>
+    <tr>
+        <td>SPI MOSI</td>
+        <td>DRV1, DRV2</td>
+        <td>PB15</td>
+    </tr>
+    <tr>
+        <td>Driver #0 CS (Normally Called X)</td>
+        <td>DRV1</td>
+        <td>PE3</td>
+    </tr>
+    <tr>
+        <td>Driver #1 CS (Normally Called Y)</td>
+        <td>DRV1</td>
+        <td>PE4</td>
+    </tr>
+    <tr>
+        <td>Driver #2 CS (Normally Called Z)</td>
+        <td>DRV1</td>
+        <td>PB3</td>
+    </tr>
+    <tr>
+        <td>Driver #3 CS (Normally Called E0)</td>
+        <td>DRV1</td>
+        <td>PB7</td>
+    </tr>
+      <tr>
+        <td>Driver #4 CS (Normally Called E1)</td>
+        <td>DRV2</td>
+        <td>PD15</td>
+    </tr>
+    <tr>
+        <td>Driver #5 CS (Normally Called E2)</td>
+        <td>DRV2</td>
+        <td>PD4</td>
+    </tr>
+    <tr>
+        <td>Driver #6 CS (Normally Called E3)</td>
+        <td>DRV2</td>
+        <td>PD11</td>
+    </tr>
+    <tr>
+        <td>Driver #7 CS (Normally Called E4)</td>
+        <td>DRV2</td>
+        <td>PD8</td>
+    </tr>
+</table>
+
+**در درایورهای SPI سه پین MISO، MOSI و CLK مشترک هستند**
+**پین کلاک پروتکل SPI با نام های CLK، SCK، SCLK و CLOCK شناخته میشود. در صورتی که اسم کلاک کمی متفاوت است گمراه نشوید...**
+
+### مثال کانفیگ کلیپر حالت های UART و SPI
+<div align="justify"> از آنجایی که فریمور مارلین برحسب فایل های از پیش کانفیگ شده کار میکند و کنترلر Springer نیز توسط مارلین پشتیبانی رسمی میشود نیازمند تنظیم کردن فریمور نیست اما در مورد فریمور کلیپر باید بلد باشیم پین درایور را به درستی ست کنیم. در زیر دو مثال از درایور UART و SPI برای شما زده شده است:
+ </div>
+ 
+ **مثال درایور های X و Y به از نوع TMC2208 در حالت UART**
+<div align="justify" style="direction:ltr;">
+TMC2208 Driver for X & Y Drivers with Motor Current of 750mA:
+  
+```
+[stepper_x]
+step_pin: PE5
+dir_pin: PE6
+enable_pin: !PC15
+microsteps: 16
+rotation_distance: 40
+endstop_pin: Tilikum:PC15
+position_endstop: 332.5
+position_max: 332.5
+homing_speed: 100
+homing_retract_dist: 5
+homing_positive_dir: true
+   
+[tmc2208 stepper_x]
+uart_pin: PE3
+run_current: 0.750
+stealthchop_threshold: 999999
+ 
+ 
+[stepper_y]
+step_pin: PC14
+dir_pin: PC13
+enable_pin: !PC15
+microsteps: 16
+rotation_distance: 40
+endstop_pin: PA14
+position_endstop: 305
+position_max: 305
+homing_speed: 100
+homing_retract_dist: 5
+homing_positive_Dir: true
+  
+[tmc2208 stepper_y]
+uart_pin: PE4
+run_current: 0.750
+stealthchop_threshold: 999999
+```
+
+</div>
+
+
+ **مثال درایور های X و Y به از نوع TMC2208 در حالت UART**
+<div align="justify" style="direction:ltr;">
+TMC2240 Driver for X & Y Drivers with Motor Current of 700mA:
+  
+```
+[stepper_x]
+step_pin: PE5
+dir_pin: PE6
+enable_pin: !PC15
+microsteps: 16
+rotation_distance: 40
+endstop_pin: Tilikum:PC15
+position_endstop: 332.5
+position_max: 332.5
+homing_speed: 100
+homing_retract_dist: 5
+homing_positive_dir: true
+ 
+[tmc2240 stepper_x]
+cs_pin: PE3
+spi_software_sclk_pin: PB13
+spi_software_miso_pin: PB14
+spi_software_mosi_pin: PB15
+run_current: 0.750
+hold_current: 0.300
+stealthchop_threshold: 999999
+ 
+[stepper_y]
+step_pin: PC14
+dir_pin: PC13
+enable_pin: !PC15
+microsteps: 16
+rotation_distance: 40
+endstop_pin: PA14
+position_endstop: 305
+position_max: 305
+homing_speed: 100
+homing_retract_dist: 5
+homing_positive_Dir: true
+ 
+[tmc2240 stepper_y]
+cs_pin: PE4
+spi_software_sclk_pin: PB13
+spi_software_miso_pin: PB14
+spi_software_mosi_pin: PB15
+run_current: 0.750
+hold_current: 0.300
+stealthchop_threshold: 999999
+```
+
+</div>
+
+**همانطور که در مثال بالا مشخص است، پین های MISO، MOSI و CLK درایور های SPI مشترک و تنها پین CS متغییر است...**
