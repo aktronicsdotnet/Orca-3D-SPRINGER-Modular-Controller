@@ -406,8 +406,8 @@ stealthchop_threshold: 999999
 # پین بخش های مختلف کنترلر ماژولار ORCA 3D SPRINGER
 
 <div align="justify"> از آنجایی که ممکن است شما بخواهید از بخش های مختلف کنترلر ORCA 3D SPRINGER برای منظور متفاوتی استفاده نمایید یا حتی ممکن است بخواهید کانفیگ مخصوص خودتان را از ابتدا بنویسید. دانستن پین های این برای شما میتواند بسیار مفید باشد. لدا در جدول زیر کلیه ی پین های این برد را به همراه توضیحات وظیفه هرکدام ارائه کردیم:  </div> </br>
-<div align="justify">
-<table border="1" cellpadding="5" cellspacing="0" width="100%">
+<div align="justify" align="center">
+<table border="1" cellpadding="5" cellspacing="0" width="100%" align="center">
   <thead>
     <tr>
       <th>نام پین</th>
