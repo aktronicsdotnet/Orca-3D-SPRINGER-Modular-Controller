@@ -402,3 +402,115 @@ stealthchop_threshold: 999999
 </div>
 
 **همانطور که در مثال بالا مشخص است، پین های MISO، MOSI و CLK درایور های SPI مشترک و تنها پین CS متغییر است...**
+
+# پین بخش های مختلف کنترلر ماژولار ORCA 3D SPRINGER
+
+<div align="justify"> از آنجایی که ممکن است شما بخواهید از بخش های مختلف کنترلر ORCA 3D SPRINGER برای منظور متفاوتی استفاده نمایید یا حتی ممکن است بخواهید کانفیگ مخصوص خودتان را از ابتدا بنویسید. دانستن پین های این برای شما میتواند بسیار مفید باشد. لدا در جدول زیر کلیه ی پین های این برد را به همراه توضیحات وظیفه هرکدام ارائه کردیم:  </div> </br>
+<div align="justify">
+<table border="1" cellpadding="5" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>نام پین</th>
+      <th>عنوان پین</th>
+      <th>توضیحات پین</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td colspan="3" style="direction:rtl; text-align:right;">پین های ارتباطی یا Communication Pins</td>
+</tr>
+	<tr><td>PA11</td><td>USB_D-</td><td style="direction:rtl;">پین پروتکل ارتباطی USB</td></tr>
+	<tr><td>PA12</td><td>USB_D+</td><td style="direction:rtl;">پین پروتکل ارتباطی USB</td></tr>
+	<tr><td>PA9</td><td>UART0_TXD</td><td style="direction:rtl;">پین پروتکل ارتباطی UART0</td></tr>
+	<tr><td>PA10</td><td>UART0_RXD</td><td style="direction:rtl;">پین پروتکل ارتباطی UART0</td></tr>
+	<tr><td>PD0</td><td>CAN_RX</td><td style="direction:rtl;">پین پروتکل ارتباطی CANBUS</td></tr>
+	<tr><td>PD1</td><td>CAN_TX</td><td style="direction:rtl;">پین پروتکل ارتباطی CANBUS</td></tr>
+	<tr><td>PB8</td><td>I2C_SCL</td><td style="direction:rtl;">پین پروتکل ارتباطی I2C</td></tr>
+	<tr><td>PB9</td><td>I2C_SDA</td><td style="direction:rtl;">پین پروتکل ارتباطی I2C</td></tr>
+<tr>
+  <td colspan="3" style="direction:rtl; text-align:right;">پین های درایور ها یا Drivers Pins</td>
+</tr>
+    <tr><td>PC15</td><td>XY_EN</td><td style="direction:rtl;">پین مشترک Enable درایور های X و Y</td></tr>
+    <tr><td>PE5</td><td>X_STP</td><td style="direction:rtl;">پین STEP درایور X</td></tr>
+    <tr><td>PE6</td><td>X_DIR</td><td style="direction:rtl;">پین DIRECTION درایور X</td></tr>
+    <tr><td>PE3</td><td>UART_X</td><td style="direction:rtl;">پین UART/CS درایور X</td></tr>
+    <tr><td>PC14</td><td>Y_STP</td><td style="direction:rtl;">پین STEP درایور Y</td></tr>
+    <tr><td>PC13</td><td>Y_DIR</td><td style="direction:rtl;">پین DIRECTION درایور Y</td></tr>
+    <tr><td>PE4</td><td>UART_Y</td><td style="direction:rtl;">پین UART/CS درایور Y</td></tr>
+    <tr><td>PB4</td><td>Z_EN</td><td style="direction:rtl;">پین ENABLE درایور Z</td></tr>
+    <tr><td>PB5</td><td>Z_STP</td><td style="direction:rtl;">پین STEP درایور Z</td></tr>
+    <tr><td>PB6</td><td>Z_DIR</td><td style="direction:rtl;">پین DIRECTION درایور Z</td></tr>
+    <tr><td>PB3</td><td>UART_Z</td><td style="direction:rtl;">پین UART/CS درایور Z</td></tr>
+    <tr><td>PE2</td><td>E0_EN</td><td style="direction:rtl;">پین ENABLE درایور E0</td></tr>
+    <tr><td>PE1</td><td>E0_STP</td><td style="direction:rtl;">پین STEP درایور E0</td></tr>
+    <tr><td>PE0</td><td>E0_DIR</td><td style="direction:rtl;">پین DIRECTION درایور E0</td></tr>
+    <tr><td>PB7</td><td>UART_E0</td><td style="direction:rtl;">پین UART/CS درایور E0</td></tr>
+    <tr><td>PB11</td><td>E1_EN</td><td style="direction:rtl;">پین ENABLE درایور E1</td></tr>
+    <tr><td>PC7</td><td>E1_STP</td><td style="direction:rtl;">پین STEP درایور E1</td></tr>
+    <tr><td>PC6</td><td>E1_DIR</td><td style="direction:rtl;">پین DIRECTION درایور E1</td></tr>
+    <tr><td>PD15</td><td>UART_E1</td><td style="direction:rtl;">پین UART/CS درایور E1</td></tr>
+    <tr><td>PD7</td><td>E2_EN</td><td style="direction:rtl;">پین ENABLE درایور E2</td></tr>
+    <tr><td>PD6</td><td>E2_STP</td><td style="direction:rtl;">پین STEP درایور E2</td></tr>
+    <tr><td>PD5</td><td>E2_DIR</td><td style="direction:rtl;">پین DIRECTION درایور E2</td></tr>
+    <tr><td>PD4</td><td>UART_E2</td><td style="direction:rtl;">پین UART/CS درایور E2</td></tr>
+    <tr><td>PD14</td><td>E3_EN</td><td style="direction:rtl;">پین ENABLE درایور E3</td></tr>
+    <tr><td>PD13</td><td>E3_STP</td><td style="direction:rtl;">پین STEP درایور E3</td></tr>
+    <tr><td>PC5</td><td>E3_DIR</td><td style="direction:rtl;">پین DIRECTION درایور E3</td></tr>
+    <tr><td>PD11</td><td>UART_E3</td><td style="direction:rtl;">پین UART/CS درایور E3</td></tr>
+    <tr><td>PD3</td><td>E4_EN</td><td style="direction:rtl;">پین ENABLE درایور E4</td></tr>
+    <tr><td>PE14</td><td>E4_STP</td><td style="direction:rtl;">پین STEP درایور E4</td></tr>
+    <tr><td>PD9</td><td>E4_DIR</td><td style="direction:rtl;">پین DIRECTION درایور E4</td></tr>
+    <tr><td>PD8</td><td>UART_E4</td><td style="direction:rtl;">پین UART/CS درایور E4</td></tr>
+    <tr><td>PB13</td><td>DRV_SCK</td><td style="direction:rtl;">پین CLOCK پروتکل SPI مشترک بین تمامی درایورها</td></tr>
+    <tr><td>PB14</td><td>DRV_MISO</td><td style="direction:rtl;">پین MISO پروتکل SPI مشترک بین تمامی درایورها</td></tr>
+    <tr><td>PB15</td><td>DRV_MOSI</td><td style="direction:rtl;">پین MOSI پروتکل SPI مشترک بین تمامی درایورها</td></tr>
+<tr>
+  <td colspan="3" style="direction:rtl; text-align:right;">پین های انداستاپ ها یا Endstops Pins</td>
+</tr>
+    <tr><td>PA15</td><td>LIMIT_X</td><td style="direction:rtl;">پین انداستاپ محور X</td></tr>
+    <tr><td>PA14</td><td>LIMIT_Y</td><td style="direction:rtl;">پین انداستاپ محور Y</td></tr>
+    <tr><td>PA13</td><td>LIMIT_Z</td><td style="direction:rtl;">پین انداستاپ محور Z</td></tr>
+    <tr><td>PA8</td><td>LIMIT_TC</td><td style="direction:rtl;">پین سروو پروب های اتوماتیک</td></tr>
+<tr>
+  <td colspan="3" style="direction:rtl; text-align:right;">پین های ترمیستور ها یا Thermistors Pins</td>
+</tr>
+	<tr><td>PC0</td><td>TMP_HB</td><td style="direction:rtl;">ترمیستور صفحه هیت بد</td></tr>
+	<tr><td>PC1</td><td>TMP_E0</td><td style="direction:rtl;">ترمیستور اکسترودر E0</td></tr>
+	<tr><td>PC2</td><td>TMP_E1</td><td style="direction:rtl;">ترمیستور اکسترودر E1</td></tr>
+	<tr><td>PC3</td><td>TMP_E2</td><td style="direction:rtl;">ترمیستور اکسترودر E2</td></tr>
+	<tr><td>PC4</td><td>TMP_E3</td><td style="direction:rtl;">ترمیستور اکسترودر E3</td></tr>
+<tr>
+  <td colspan="3" style="direction:rtl; text-align:right;">پین های خروجی یا Output Pins</td>
+</tr>
+	<tr><td>PB0</td><td>PWM_HB</td><td style="direction:rtl;">هیتر صفحه هیت بد</td></tr>
+	<tr><td>PB1</td><td>PWM_E0</td><td style="direction:rtl;">هیتر اکسترودر E0</td></tr>
+	<tr><td>PB2</td><td>PWM_E1</td><td style="direction:rtl;">هیتر اکسترودر E1</td></tr>
+	<tr><td>PB10</td><td>PWM_E2</td><td style="direction:rtl;">هیتر اکسترودر E2</td></tr>
+	<tr><td>PB12</td><td>PWM_E3</td><td style="direction:rtl;">هیتر اکسترودر E3</td></tr>
+	<tr><td>PA0</td><td>PWM_FN0</td><td style="direction:rtl;">خروجی فن FN0</td></tr>
+	<tr><td>PA1</td><td>PWM_FN1</td><td style="direction:rtl;">خروجی فن FN1</td></tr>
+	<tr><td>PA2</td><td>PWM_FN2</td><td style="direction:rtl;">خروجی فن FN2</td></tr>
+	<tr><td>PA3</td><td>PWM_FN3</td><td style="direction:rtl;">خروجی فن FN3</td></tr>
+<tr>
+  <td colspan="3" style="direction:rtl; text-align:right;">پین های حافظه میکرو SD یا MicroSD Pins</td>
+</tr>	
+	<tr><td>PA4</td><td>SPI1_CS</td><td style="direction:rtl;">پین CS کارت حافظه MicroSD</td></tr>
+	<tr><td>PA5</td><td>SPI1_SCK</td><td style="direction:rtl;">پین CLOCK کارت حافظه MicroSD</td></tr>
+	<tr><td>PA6</td><td>SPI1_MISO</td><td style="direction:rtl;">پین MISO کارت حافظه MicroSD</td></tr>
+	<tr><td>PA7</td><td>SPI1_MOSI</td><td style="direction:rtl;">پین MOSI کارت حافظه MicroSD</td></tr>
+	<tr><td>PD12</td><td>SD_DET</td><td style="direction:rtl;">پین تشخیص کارت حافظه MicroSD</td></tr>
+<tr>
+  <td colspan="3" style="direction:rtl; text-align:right;">پین های نمایشگر 12864 یا 12864 LCD Pins</td>
+</tr>
+	<tr><td>PE8</td><td>ENC_A</td><td style="direction:rtl;">پین انکودر نمایشگر 12864</td></tr>
+	<tr><td>PE9</td><td>ENC_B</td><td style="direction:rtl;">پین انکودر نمایشگر 12864</td></tr>
+	<tr><td>PE10</td><td>ENC_C</td><td style="direction:rtl;">پین انکودر نمایشگر 12864</td></tr>
+	<tr><td>PE11</td><td>LCD_EN</td><td style="direction:rtl;">پین دیتای نمایشگر 12864</td></tr>
+	<tr><td>PD10</td><td>LCD_RS</td><td style="direction:rtl;">پین دیتای نمایشگر 12864</td></tr>
+	<tr><td>PE12</td><td>LCD_D4</td><td style="direction:rtl;">پین دیتای نمایشگر 12864</td></tr>
+	<tr><td>PE13</td><td>LCD_D5</td><td style="direction:rtl;">پین دیتای نمایشگر 12864</td></tr>
+	<tr><td>PE15</td><td>LCD_D6</td><td style="direction:rtl;">پین دیتای نمایشگر 12864</td></tr>
+	<tr><td>PE7</td><td>LCD_D7</td><td style="direction:rtl;">پین دیتای نمایشگر 12864</td></tr>
+  </tbody>
+</table>
+</div>
